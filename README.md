@@ -28,6 +28,6 @@ Las fotos `extra-*.jpg` son la galería deslizable "Más de El Salvador".
 
 ## Video del escáner intraoral
 En `js/config.js` cambia `scannerVideo`:
-- Si subes el archivo a la carpeta `videos/`: `scannerVideo: "videos/escaner-intraoral-chill.mp4"`
+- Si subes el archivo a la carpeta `videos/`: `scannerVideo: "videos/escaner-intraoral-electronica.mp4"`
 - Si está en YouTube: `scannerVideo: "https://www.youtube.com/watch?v=..."`
 Mientras esté vacío se muestra el aviso "Video próximamente".
