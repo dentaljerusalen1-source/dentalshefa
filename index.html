@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clínica Dental Jerusalén Shefa | Turismo Dental en San Salvador</title>
   <meta name="description" content="Rehabilitación oral y estética dental en San Salvador, El Salvador. Ahorra hasta 70% frente a precios de EE. UU. con atención bilingüe." />
-  <meta name="theme-color" content="#0b1f3a" />
+  <meta name="theme-color" content="#0a1a33" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
 
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
@@ -37,7 +38,7 @@
 
       <div class="header__actions">
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Cambiar idioma / Change language">
-          <span data-lang="es">ES</span><span class="lang-toggle__sep">|</span><span data-lang="en">EN</span>
+          <span class="lang-toggle__pill" aria-hidden="true"></span><span data-lang="es">ES</span><span data-lang="en">EN</span>
         </button>
         <a href="#contacto" class="btn btn--gold btn--sm header__cta" data-i18n="nav.cta">Agenda tu cita</a>
         <button class="burger" id="burger" type="button" aria-label="Menú" aria-expanded="false">
@@ -52,7 +53,7 @@
     <section class="hero" id="inicio">
       <div class="hero__bg" aria-hidden="true">
         <!-- REEMPLAZAR: foto principal (estética dental). Foto de ejemplo: Tony Litvyak / Unsplash -->
-        <img src="https://unsplash.com/photos/glPVwPr1FKo/download?w=1920" alt="" fetchpriority="high" />
+        <img src="https://unsplash.com/photos/glPVwPr1FKo/download?w=1920" alt="" fetchpriority="high" decoding="async" />
       </div>
       <div class="container hero__content">
         <div class="hero__logo reveal" aria-hidden="true"><img src="img/logo.png" alt="" width="700" height="560" /></div>
@@ -60,7 +61,7 @@
         <h1 class="hero__title reveal" data-i18n-html="hero.title">Tu nueva sonrisa,<br /><em>a una fracción</em> del precio en EE. UU.</h1>
         <p class="hero__lead reveal" data-i18n="hero.lead">Especialistas en rehabilitación oral y estética dental. Implantes, coronas y carillas con estándares internacionales y atención bilingüe. ¿Vienes a El Salvador? Aprovecha tu visita para transformar tu sonrisa.</p>
         <div class="hero__ctas reveal">
-          <a href="#ahorro" class="btn btn--gold" data-i18n="hero.cta1">Calcula tu ahorro</a>
+          <a href="#ahorro" class="btn btn--gold btn--arrow" data-i18n="hero.cta1">Calcula tu ahorro</a>
           <a href="https://wa.me/50376559627" class="btn btn--ghost js-wa" target="_blank" rel="noopener" data-i18n="hero.cta2">Escríbenos por WhatsApp</a>
         </div>
         <ul class="hero__stats reveal">
@@ -69,15 +70,16 @@
           <li><strong>USD</strong><span data-i18n="hero.stat3">moneda oficial, sin cambio de divisa</span></li>
         </ul>
       </div>
+      <a href="#servicios" class="hero__scroll" aria-label="Bajar"><span></span></a>
     </section>
 
     <!-- ============ TRUST BAR ============ -->
     <section class="trust" aria-label="Garantías">
       <div class="container trust__inner">
-        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.1">Atención en inglés y español</span></div>
-        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.2">Materiales certificados FDA / CE</span></div>
-        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.3">Plan de tratamiento por escrito</span></div>
-        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.4">Citas según las fechas de tu viaje</span></div>
+        <div class="trust__item"><svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg><span data-i18n="trust.1">Atención en inglés y español</span></div>
+        <div class="trust__item"><svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg><span data-i18n="trust.2">Materiales certificados FDA / CE</span></div>
+        <div class="trust__item"><svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg><span data-i18n="trust.3">Plan de tratamiento por escrito</span></div>
+        <div class="trust__item"><svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8z"/></svg><span data-i18n="trust.4">Citas según las fechas de tu viaje</span></div>
       </div>
     </section>
 
@@ -92,32 +94,38 @@
 
         <div class="services">
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 6H9z"/><path d="M10 9v3h4V9"/><path d="M10.5 12l-.5 3h4l-.5-3"/><path d="M10 15l.5 3h3l.5-3"/><path d="M11 18l1 3 1-3"/></svg></div>
+            <span class="service__num">01</span>
             <h3 data-i18n="services.s1.t">Implantes dentales</h3>
             <p data-i18n="services.s1.d">Reemplazo permanente de piezas perdidas con implantes de titanio y coronas a medida.</p>
           </article>
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10c0-3 4-5 9-5s9 2 9 5"/><path d="M5 10v2a7 7 0 0 0 14 0v-2"/><path d="M8 17v4M12 18v3M16 17v4"/></svg></div>
+            <span class="service__num">02</span>
             <h3 data-i18n="services.s2.t">All-on-4 / Rehabilitación total</h3>
             <p data-i18n="services.s2.d">Una arcada completa fija sobre implantes. Vuelve a comer y sonreír con confianza.</p>
           </article>
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4c-2 0-3 2-3 5 0 4 1.5 6 2.5 10 .3 1.2 1.7 1.2 2 0L10 14h4l1.5 5c.3 1.2 1.7 1.2 2 0C18.5 15 20 13 20 9c0-3-1-5-3-5-2 0-3 1-5 1S9 4 7 4z"/><path d="M8 8.5c1.2.6 2.5.9 4 .9s2.8-.3 4-.9"/></svg></div>
+            <span class="service__num">03</span>
             <h3 data-i18n="services.s3.t">Carillas de porcelana</h3>
             <p data-i18n="services.s3.d">Diseño de sonrisa personalizado con carillas ultradelgadas de aspecto natural.</p>
           </article>
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9l3 3 5-7 5 7 3-3-2 10H6z"/><path d="M6 19h12"/></svg></div>
+            <span class="service__num">04</span>
             <h3 data-i18n="services.s4.t">Coronas de zirconio</h3>
             <p data-i18n="services.s4.d">Restauraciones resistentes y estéticas, libres de metal, para dientes dañados.</p>
           </article>
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M8 11c1.2 1.2 2.6 1.8 4 1.8s2.8-.6 4-1.8"/></svg></div>
+            <span class="service__num">05</span>
             <h3 data-i18n="services.s5.t">Diseño digital de sonrisa</h3>
             <p data-i18n="services.s5.d">Visualiza tu resultado antes de empezar con planificación digital.</p>
           </article>
           <article class="service reveal">
-            <div class="service__icon">◆</div>
+            <div class="service__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></div>
+            <span class="service__num">06</span>
             <h3 data-i18n="services.s6.t">Blanqueamiento y endodoncia</h3>
             <p data-i18n="services.s6.d">Tratamientos complementarios para una sonrisa sana, luminosa y completa.</p>
           </article>
@@ -147,7 +155,7 @@
           </div>
           <span class="ba__label ba__label--before" data-i18n="ba.before">Antes</span>
           <span class="ba__label ba__label--after" data-i18n="ba.after">Después</span>
-          <div class="ba__handle" aria-hidden="true"><span>‹ ›</span></div>
+          <div class="ba__handle" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
           <input class="ba__range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Comparar antes y después" />
         </div>
       </div>
@@ -181,7 +189,7 @@
               <div class="calc__bar"><span id="saveBar"></span></div>
               <small id="savePct">0%</small>
             </div>
-            <a href="https://wa.me/50376559627" class="btn btn--gold btn--block js-wa-quote" target="_blank" rel="noopener" data-i18n="calc.cta">Solicitar cotización personalizada</a>
+            <a href="https://wa.me/50376559627" class="btn btn--gold btn--block btn--arrow js-wa-quote" target="_blank" rel="noopener" data-i18n="calc.cta">Solicitar cotización personalizada</a>
             <p class="note" data-i18n="calc.note">* Precios de referencia. El costo final depende de la valoración clínica.</p>
           </aside>
         </div>
@@ -202,16 +210,17 @@
         <div class="journey__visual" aria-hidden="true">
           <div class="journey__frame">
             <!-- REEMPLAZAR: fotos para cada etapa del viaje -->
-            <img class="journey__img is-active" data-step="0" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80" alt="" />
-            <img class="journey__img" data-step="1" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1200&q=80" alt="" />
-            <img class="journey__img" data-step="2" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="" />
-            <img class="journey__img" data-step="3" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80" alt="" />
+            <img class="journey__img is-active" data-step="0" src="images/turismo/extra-letras-el-salvador.jpg" width="736" height="981" alt="" loading="lazy" />
+            <img class="journey__img" data-step="1" src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" />
+            <img class="journey__img" data-step="2" src="images/turismo/playas.jpg" width="640" height="800" alt="" loading="lazy" />
+            <img class="journey__img" data-step="3" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=75" alt="" loading="lazy" />
             <div class="journey__progress"><span id="journeyBar"></span></div>
             <div class="journey__count"><span id="journeyNum">01</span> / 04</div>
           </div>
         </div>
 
         <ol class="journey__steps">
+          <li class="journey__line" aria-hidden="true"><span id="journeyLine"></span></li>
           <li class="jstep is-active" data-step="0">
             <span class="jstep__num">01</span>
             <h3 data-i18n="journey.s1.t">Llegas</h3>
@@ -248,7 +257,7 @@
 
         <div class="dgrid">
           <article class="dcard reveal dcard--wide">
-            <div class="dcard__media"><img src="images/turismo/playas.jpg" alt="Playa El Tunco al atardecer" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/playas.jpg" width="640" height="800" alt="Playa El Tunco al atardecer" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c1.tag">Playas</span>
               <h3 data-i18n="disc.c1.t">El Tunco, El Zonte y Surf City</h3>
@@ -256,7 +265,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/centro-historico.jpg" alt="Centro Histórico de San Salvador" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/centro-historico.jpg" width="736" height="551" alt="Centro Histórico de San Salvador" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c2.tag">Cultura</span>
               <h3 data-i18n="disc.c2.t">Centro Histórico de San Salvador</h3>
@@ -264,7 +273,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/navidad.jpg" alt="Árbol de Navidad iluminado en San Salvador" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/navidad.jpg" width="736" height="913" alt="Árbol de Navidad iluminado en San Salvador" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c3.tag">Temporada</span>
               <h3 data-i18n="disc.c3.t">Navidad en El Salvador</h3>
@@ -272,7 +281,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/ruta-flores.jpg" alt="Tobogán de colores en Albania, Apaneca" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/ruta-flores.jpg" width="562" height="1000" alt="Tobogán de colores en Albania, Apaneca" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c4.tag">Pueblos</span>
               <h3 data-i18n="disc.c4.t">Ruta de las Flores</h3>
@@ -280,7 +289,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/volcanes.jpg" alt="Lago de Coatepeque" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/volcanes.jpg" width="750" height="1000" alt="Lago de Coatepeque" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c5.tag">Naturaleza</span>
               <h3 data-i18n="disc.c5.t">Volcanes y lagos</h3>
@@ -288,7 +297,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/comida.jpg" alt="Pupusas salvadoreñas" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/comida.jpg" width="1200" height="900" alt="Pupusas salvadoreñas" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c6.tag">Gastronomía</span>
               <h3 data-i18n="disc.c6.t">Pupusas y sabores locales</h3>
@@ -296,7 +305,7 @@
             </div>
           </article>
           <article class="dcard reveal">
-            <div class="dcard__media"><img src="images/turismo/moderno.jpg" alt="Letras de El Salvador frente a la Biblioteca Nacional BINAES" loading="lazy" /></div>
+            <div class="dcard__media"><img src="images/turismo/moderno.jpg" width="736" height="981" alt="Letras de El Salvador frente a la Biblioteca Nacional BINAES" loading="lazy" /></div>
             <div class="dcard__body">
               <span class="dcard__tag" data-i18n="disc.c7.tag">Hoy</span>
               <h3 data-i18n="disc.c7.t">El Salvador moderno</h3>
@@ -307,12 +316,12 @@
 
         <h3 class="dstrip__title reveal" data-i18n="disc.more">Más de El Salvador</h3>
         <div class="dstrip reveal" tabindex="0" aria-label="Galería">
-            <figure><img src="images/turismo/extra-volcan-izalco.jpg" alt="Volcán de Izalco" loading="lazy" /><figcaption>Volcán de Izalco</figcaption></figure>
-            <figure><img src="images/turismo/extra-surf-city.jpg" alt="Surf City, La Libertad" loading="lazy" /><figcaption>Surf City, La Libertad</figcaption></figure>
-            <figure><img src="images/turismo/extra-lago-coatepeque.jpg" alt="Lago de Coatepeque" loading="lazy" /><figcaption>Lago de Coatepeque</figcaption></figure>
-            <figure><img src="images/turismo/extra-san-salvador.jpg" alt="San Salvador al atardecer" loading="lazy" /><figcaption>San Salvador al atardecer</figcaption></figure>
-            <figure><img src="images/turismo/extra-surf-city-letrero.jpg" alt="Letrero de Surf City El Salvador" loading="lazy" /><figcaption>Letrero de Surf City El Salvador</figcaption></figure>
-            <figure><img src="images/turismo/extra-letras-el-salvador.jpg" alt="Letras de El Salvador" loading="lazy" /><figcaption>Letras de El Salvador</figcaption></figure>
+            <figure><img src="images/turismo/extra-volcan-izalco.jpg" width="1000" height="667" alt="Volcán de Izalco" loading="lazy" /><figcaption>Volcán de Izalco</figcaption></figure>
+            <figure><img src="images/turismo/extra-surf-city.jpg" width="512" height="640" alt="Surf City, La Libertad" loading="lazy" /><figcaption>Surf City, La Libertad</figcaption></figure>
+            <figure><img src="images/turismo/extra-lago-coatepeque.jpg" width="736" height="981" alt="Lago de Coatepeque" loading="lazy" /><figcaption>Lago de Coatepeque</figcaption></figure>
+            <figure><img src="images/turismo/extra-san-salvador.jpg" width="736" height="920" alt="San Salvador al atardecer" loading="lazy" /><figcaption>San Salvador al atardecer</figcaption></figure>
+            <figure><img src="images/turismo/extra-surf-city-letrero.jpg" width="736" height="981" alt="Letrero de Surf City El Salvador" loading="lazy" /><figcaption>Letrero de Surf City El Salvador</figcaption></figure>
+            <figure><img src="images/turismo/extra-letras-el-salvador.jpg" width="736" height="981" alt="Letras de El Salvador" loading="lazy" /><figcaption>Letras de El Salvador</figcaption></figure>
         </div>
 
         <div class="itin">
@@ -455,7 +464,7 @@
             <li><span class="contact__ico">✆</span><a href="https://wa.me/50376559627" class="js-wa" target="_blank" rel="noopener">+503 7655-9627</a></li>
             <li><span class="contact__ico">◷</span><span data-i18n="contact.hours">Lunes a viernes 8:00–18:00 · Sábado 8:00–13:00</span></li>
           </ul>
-          <a href="https://wa.me/50376559627" class="btn btn--gold js-wa" target="_blank" rel="noopener" data-i18n="contact.cta">Agendar por WhatsApp</a>
+          <a href="https://wa.me/50376559627" class="btn btn--gold btn--arrow js-wa" target="_blank" rel="noopener" data-i18n="contact.cta">Agendar por WhatsApp</a>
         </div>
         <div class="contact__map reveal">
           <iframe title="Mapa Clínica Dental Jerusalén Shefa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -479,8 +488,8 @@
     <span class="wa-float__tip" data-i18n="wa.tip">¿Hablamos?</span>
   </a>
 
-  <script src="js/config.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

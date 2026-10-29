@@ -64,11 +64,45 @@
   var burger = document.getElementById("burger");
   var nav = document.getElementById("nav");
 
+  var progress = document.getElementById("scrollBar");
+  var waFloat = document.querySelector(".wa-float");
+  var stepsBox = document.querySelector(".journey__steps");
+  var jLine = document.getElementById("journeyLine");
+  var ticking = false;
+
   function onScroll() {
-    header.classList.toggle("is-scrolled", window.scrollY > 30);
+    var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    header.classList.toggle("is-scrolled", y > 30);
+    if (progress) progress.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+    if (waFloat && y > 320) waFloat.classList.add("is-shown");
+    if (stepsBox && jLine) {
+      var r = stepsBox.getBoundingClientRect();
+      var p = (window.innerHeight * 0.5 - r.top) / r.height;
+      jLine.style.height = Math.max(0, Math.min(1, p)) * 100 + "%";
+    }
+    ticking = false;
   }
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
   onScroll();
+  setTimeout(function () { if (waFloat) waFloat.classList.add("is-shown"); }, 2500);
+
+  /* ---------- Menú: resaltar la sección visible ---------- */
+  var navLinks = nav.querySelectorAll('a[href^="#"]');
+  var spyObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(function (a) {
+        a.classList.toggle("is-active", a.getAttribute("href") === "#" + e.target.id);
+      });
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  navLinks.forEach(function (a) {
+    var sec = document.querySelector(a.getAttribute("href"));
+    if (sec) spyObs.observe(sec);
+  });
 
   burger.addEventListener("click", function () {
     var open = nav.classList.toggle("is-open");
@@ -92,7 +126,22 @@
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(function (el) { revealObs.observe(el); });
+  document.querySelectorAll(".reveal").forEach(function (el) {
+    // Escalonar elementos hermanos para que aparezcan uno tras otro
+    var sibs = Array.prototype.filter.call(el.parentNode.children, function (c) { return c.classList.contains("reveal"); });
+    var i = sibs.indexOf(el);
+    if (i > 0) el.style.setProperty("--d", Math.min(i, 6) * 0.08 + "s");
+    revealObs.observe(el);
+  });
+
+  /* ---------- Luz que sigue al cursor en las tarjetas ---------- */
+  document.querySelectorAll(".service").forEach(function (card) {
+    card.addEventListener("pointermove", function (ev) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", ev.clientX - r.left + "px");
+      card.style.setProperty("--my", ev.clientY - r.top + "px");
+    });
+  });
 
   /* ---------- Imágenes de respaldo ---------- */
   document.querySelectorAll("img").forEach(function (img) {
@@ -120,9 +169,36 @@
     });
   }
 
+  function setPos(v) {
+    baRange.value = v;
+    ba.style.setProperty("--pos", v + "%");
+  }
+  var demoDone = false;
   baRange.addEventListener("input", function () {
+    demoDone = true;
     ba.style.setProperty("--pos", baRange.value + "%");
   });
+  // Pequeña demostración al aparecer: el deslizador se mueve solo una vez
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var baObs = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || demoDone || reduceMotion) return;
+    baObs.disconnect();
+    var keys = [[0, 50], [700, 22], [1500, 78], [2200, 50]];
+    var start = null;
+    function frame(ts) {
+      if (demoDone) return;
+      if (!start) start = ts;
+      var t = ts - start, k = 1;
+      while (k < keys.length - 1 && t > keys[k][0]) k++;
+      var a = keys[k - 1], b = keys[k];
+      var f = Math.min(1, Math.max(0, (t - a[0]) / (b[0] - a[0])));
+      f = f < .5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+      setPos(a[1] + (b[1] - a[1]) * f);
+      if (t < keys[keys.length - 1][0]) requestAnimationFrame(frame); else setPos(50);
+    }
+    setTimeout(function () { requestAnimationFrame(frame); }, 400);
+  }, { threshold: 0.6 });
+  baObs.observe(ba);
   document.querySelectorAll(".ba-tab").forEach(function (b) {
     b.addEventListener("click", function () { setCase(+b.getAttribute("data-case")); });
   });
@@ -135,6 +211,23 @@
 
   function money(n) {
     return "$" + Math.round(n).toLocaleString("en-US");
+  }
+
+  // Animar números de la calculadora
+  function tween(el, to) {
+    var from = el._v || 0;
+    el._v = to;
+    if (from === to) { el.textContent = money(to); return; }
+    var t0 = null, dur = 650;
+    function step(ts) {
+      if (el._v !== to) return;
+      if (!t0) t0 = ts;
+      var f = Math.min(1, (ts - t0) / dur);
+      f = 1 - Math.pow(1 - f, 3);
+      el.textContent = money(from + (to - from) * f);
+      if (f < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   }
 
   function renderCalc() {
@@ -182,11 +275,11 @@
     var save = Math.max(0, us - clinic - travel);
     var pct = us > 0 ? Math.round((save / us) * 100) : 0;
 
-    document.getElementById("totUS").textContent = money(us);
-    document.getElementById("totClinic").textContent = money(clinic);
-    document.getElementById("totTravel").textContent = money(travel);
+    tween(document.getElementById("totUS"), us);
+    tween(document.getElementById("totClinic"), clinic);
+    tween(document.getElementById("totTravel"), travel);
     document.getElementById("travelRow").style.display = travelChk.checked ? "" : "none";
-    document.getElementById("totSave").textContent = money(save);
+    tween(document.getElementById("totSave"), save);
     document.getElementById("saveBar").style.width = pct + "%";
     document.getElementById("savePct").textContent = pct + "% " + t("calc.saveSuffix");
 
