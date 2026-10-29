@@ -370,6 +370,7 @@
     } else {
       var v = document.createElement("video");
       v.src = src; v.controls = true; v.playsInline = true; v.preload = "metadata";
+      v.muted = true; v.defaultMuted = true; v.setAttribute("muted", "");
       v.setAttribute("aria-label", "Video del escáner intraoral");
       if (CFG.scannerPoster) v.poster = CFG.scannerPoster;
       // Video vertical (grabado con celular): ajustar el marco

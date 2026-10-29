@@ -13,7 +13,7 @@ window.SITE_CONFIG = {
   // Opción 1: sube el video a la carpeta videos/ y escribe, por ejemplo: "videos/escaner-intraoral.mp4"
   // Opción 2: pega un enlace de YouTube, por ejemplo: "https://www.youtube.com/watch?v=XXXXXXXX"
   // Déjalo vacío ("") para mostrar el aviso "Video próximamente".
-  scannerVideo: "videos/escaner-intraoral.mp4",
+  scannerVideo: "videos/escaner-intraoral-sin-sonido.mp4",
   scannerPoster: "videos/escaner-intraoral.jpg",  // imagen que se ve antes de darle play
 
   // Precios de referencia en USD (por unidad).
