@@ -444,7 +444,7 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
 .cfeat p { margin: .15rem 0 0; color: var(--muted); font-size: .93rem; }
 
 .clinic__gtitle { text-align: center; font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--navy-800); margin: clamp(4rem, 8vw, 6rem) 0 1.8rem; }
-.cgallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.cgallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; max-width: 1000px; margin-inline: auto; }
 .ctile {
   position: relative; display: block; padding: 0; border: 0; cursor: zoom-in; border-radius: 16px; overflow: hidden;
   aspect-ratio: 3 / 4; background: var(--navy-700); box-shadow: var(--shadow-sm);
@@ -452,7 +452,7 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
 }
 .ctile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
 .ctile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(5,15,32,.8)); pointer-events: none; }
-.ctile__cap { position: absolute; z-index: 1; left: .9rem; right: .9rem; bottom: .8rem; text-align: left; color: var(--white); font-size: .82rem; font-weight: 700; }
+.ctile__cap { position: absolute; z-index: 1; left: 1.1rem; right: 1.1rem; bottom: 1rem; text-align: left; color: var(--white); font-family: var(--serif); font-size: 1.35rem; font-weight: 600; line-height: 1.15; }
 .ctile__zoom { position: absolute; z-index: 1; top: .7rem; right: .7rem; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); opacity: 0; transform: scale(.7); transition: all .4s var(--ease-out); }
 .ctile__zoom svg { width: 18px; height: 18px; fill: none; stroke: var(--navy-900); stroke-width: 2; stroke-linecap: round; }
 .ctile:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
@@ -568,7 +568,6 @@ img.is-broken { opacity: 0; }
   .header__cta { display: none; }
 }
 @media (max-width: 1024px) {
-  .cgallery { grid-template-columns: repeat(3, 1fr); }
   .services, .testimonials { grid-template-columns: repeat(2, 1fr); }
   .dgrid { grid-template-columns: repeat(2, 1fr); }
   .trust__inner { grid-template-columns: repeat(2, 1fr); }
@@ -642,7 +641,7 @@ img.is-broken { opacity: 0; }
   .jstep__num { font-size: 3.4rem; }
   .cgallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .8rem; margin-inline: -16px; padding: 0 16px 1rem; scrollbar-width: none; }
   .cgallery::-webkit-scrollbar { display: none; }
-  .ctile { flex: 0 0 62%; scroll-snap-align: center; }
+  .ctile { flex: 0 0 72%; scroll-snap-align: center; }
   .ctile__zoom { opacity: 1; transform: none; }
   .lightbox { padding: 64px 12px; }
   .lightbox__nav { top: auto; bottom: 18px; margin-top: 0; }
