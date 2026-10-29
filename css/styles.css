@@ -472,6 +472,45 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
 .lightbox__nav--prev { left: 12px; }
 .lightbox__nav--next { right: 12px; }
 
+/* Servicio 7 ("Otros tratamientos"): tarjeta horizontal a todo el ancho */
+.service--wide { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.6rem; padding: 2rem 2.4rem; }
+.service--wide .service__icon { margin-bottom: 0; flex: none; }
+.service--wide .service__body { flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.service--wide .service__body h3 { margin: 0; }
+.service--wide .service__body p { flex: 1 1 320px; }
+.service--wide .service__num { top: 50%; transform: translateY(-50%); }
+.service__link {
+  display: inline-flex; align-items: center; gap: .5em; margin-right: 2.4rem; white-space: nowrap;
+  font-weight: 700; font-size: .9rem; color: var(--gold-text); text-decoration: none;
+}
+.service__link::after { content: "→"; transition: transform .35s var(--ease-out); }
+.service__link:hover::after { transform: translateX(5px); }
+
+/* ---------- Bloque laboratorio + video ---------- */
+.lab {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
+  margin-top: clamp(4rem, 8vw, 6rem); padding: clamp(1.8rem, 4vw, 3.2rem); border-radius: var(--radius-lg);
+  background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.lab > * { min-width: 0; }
+.lab__title { font-size: clamp(2rem, 3.4vw, 2.7rem); color: var(--navy-800); }
+.lab__list { list-style: none; padding: 0; margin: 1.6rem 0 0; display: grid; gap: 1.2rem; }
+.lab__item { display: flex; gap: 1rem; align-items: flex-start; }
+.lab__item strong { display: block; font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy-800); line-height: 1.2; }
+.lab__item p { margin: .2rem 0 0; color: var(--muted); font-size: .94rem; }
+.lab__media { margin: 0; }
+.lab__media figcaption { margin-top: .9rem; font-size: .84rem; color: var(--muted); text-align: center; }
+.video-slot {
+  position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: radial-gradient(80% 80% at 50% 30%, rgba(216,189,132,.18), transparent 60%), var(--navy-800);
+  box-shadow: var(--shadow); border: 1px solid rgba(216,189,132,.35);
+}
+.video-slot video, .video-slot iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; background: #000; }
+.video-slot__empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; padding: 1rem; color: rgba(255,255,255,.75); font-size: .9rem; }
+.video-slot__empty strong { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--white); }
+.video-slot__play { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; margin-bottom: .5rem; background: var(--gold-grad); box-shadow: 0 0 0 10px rgba(216,189,132,.15); }
+.video-slot__play svg { width: 26px; height: 26px; fill: var(--navy-900); margin-left: 3px; }
+
 /* ---------- Testimonios ---------- */
 .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .testi {
@@ -594,6 +633,7 @@ img.is-broken { opacity: 0; }
 
   .results, .contact { grid-template-columns: 1fr; }
   .clinic__intro { grid-template-columns: 1fr; }
+  .lab { grid-template-columns: 1fr; }
   .clinic__team { max-width: 460px; margin-inline: auto; width: calc(100% - 22px); }
 
   .journey__grid { grid-template-columns: 1fr; gap: 0; }
@@ -626,6 +666,13 @@ img.is-broken { opacity: 0; }
   .services, .testimonials, .trust__inner, .dgrid { grid-template-columns: 1fr; }
   .trust__inner { gap: .7rem; padding: 1.2rem 0; }
   .service { padding: 2rem 1.6rem; }
+  .service--wide { flex-direction: column; align-items: flex-start; gap: 0; padding: 2rem 1.6rem; }
+  .service--wide .service__icon { margin-bottom: 1.6rem; }
+  .service--wide .service__body { display: block; }
+  .service--wide .service__body h3 { margin-bottom: .4rem; }
+  .service--wide .service__num { top: 1.6rem; transform: none; }
+  .service__link { margin: 1rem 0 0; }
+  .lab { padding: 1.5rem 1.1rem; }
 
   .calc__row { grid-template-columns: 1fr auto; row-gap: .35rem; padding: 1rem 1.1rem; }
   .calc__row--head { display: none; }

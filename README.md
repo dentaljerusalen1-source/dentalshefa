@@ -25,3 +25,9 @@ Edita `js/i18n.js` (sección `es` y sección `en`).
 Están en `images/turismo/`. Para cambiar una foto, reemplaza el archivo con el mismo nombre:
 `playas.jpg`, `centro-historico.jpg`, `navidad.jpg`, `ruta-flores.jpg`, `volcanes.jpg`, `comida.jpg` (pendiente: foto de pupusas), `moderno.jpg`.
 Las fotos `extra-*.jpg` son la galería deslizable "Más de El Salvador".
+
+## Video del escáner intraoral
+En `js/config.js` cambia `scannerVideo`:
+- Si subes el archivo a la carpeta `videos/`: `scannerVideo: "videos/escaner-intraoral.mp4"`
+- Si está en YouTube: `scannerVideo: "https://www.youtube.com/watch?v=..."`
+Mientras esté vacío se muestra el aviso "Video próximamente".

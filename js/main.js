@@ -358,6 +358,22 @@
     tx = null;
   });
 
+  /* ---------- Video del escáner intraoral ---------- */
+  (function () {
+    var src = (CFG.scannerVideo || "").trim();
+    var slot = document.getElementById("scannerVideo");
+    if (!src || !slot) return;
+    var yt = src.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,})/);
+    if (yt) {
+      slot.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + yt[1] +
+        '" title="Escáner intraoral" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    } else {
+      var v = document.createElement("video");
+      v.src = src; v.controls = true; v.playsInline = true; v.preload = "metadata";
+      slot.innerHTML = ""; slot.appendChild(v);
+    }
+  })();
+
   /* ---------- Inicio ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
   applyLang(detectLang());

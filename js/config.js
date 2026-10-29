@@ -9,6 +9,12 @@ window.SITE_CONFIG = {
   // Solo se usa en la calculadora si el visitante marca la casilla.
   travelEstimate: 450,
 
+  // Video del escáner intraoral (sección "Nuestra clínica").
+  // Opción 1: sube el video a la carpeta videos/ y escribe, por ejemplo: "videos/escaner-intraoral.mp4"
+  // Opción 2: pega un enlace de YouTube, por ejemplo: "https://www.youtube.com/watch?v=XXXXXXXX"
+  // Déjalo vacío ("") para mostrar el aviso "Video próximamente".
+  scannerVideo: "",
+
   // Precios de referencia en USD (por unidad).
   //   us     = precio promedio en EE. UU.
   //   clinic = precio en la clínica
