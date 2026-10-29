@@ -505,6 +505,7 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
   background: radial-gradient(80% 80% at 50% 30%, rgba(216,189,132,.18), transparent 60%), var(--navy-800);
   box-shadow: var(--shadow); border: 1px solid rgba(216,189,132,.35);
 }
+.video-slot.is-vertical { aspect-ratio: 9 / 16; height: min(620px, 78vh); width: auto; max-width: 100%; margin-inline: auto; }
 .video-slot video, .video-slot iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; background: #000; }
 .video-slot__empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; padding: 1rem; color: rgba(255,255,255,.75); font-size: .9rem; }
 .video-slot__empty strong { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--white); }

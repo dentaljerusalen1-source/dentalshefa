@@ -370,6 +370,13 @@
     } else {
       var v = document.createElement("video");
       v.src = src; v.controls = true; v.playsInline = true; v.preload = "metadata";
+      v.setAttribute("aria-label", "Video del escáner intraoral");
+      if (CFG.scannerPoster) v.poster = CFG.scannerPoster;
+      // Video vertical (grabado con celular): ajustar el marco
+      v.addEventListener("loadedmetadata", function () {
+        slot.classList.toggle("is-vertical", v.videoHeight > v.videoWidth);
+      });
+      if (/vertical|escaner-intraoral/.test(src)) slot.classList.add("is-vertical");
       slot.innerHTML = ""; slot.appendChild(v);
     }
   })();
