@@ -50,6 +50,9 @@
     document.querySelectorAll(".js-wa").forEach(function (a) {
       a.href = waUrl(t("wa.msg"));
     });
+    document.querySelectorAll(".js-wa-trip").forEach(function (a) {
+      a.href = waUrl(t("wa.trip"));
+    });
   }
 
   document.getElementById("langToggle").addEventListener("click", function () {

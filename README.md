@@ -20,3 +20,8 @@ Edita `js/config.js` → `treatments`. Cada tratamiento tiene `us` (precio prome
 
 ## Cambiar textos
 Edita `js/i18n.js` (sección `es` y sección `en`).
+
+## Fotos de "Descubre El Salvador"
+Están en `images/turismo/`. Para cambiar una foto, reemplaza el archivo con el mismo nombre:
+`playas.jpg`, `centro-historico.jpg`, `navidad.jpg`, `ruta-flores.jpg`, `volcanes.jpg`, `comida.jpg` (pendiente: foto de pupusas), `moderno.jpg`.
+Las fotos `extra-*.jpg` son la galería deslizable "Más de El Salvador".
