@@ -114,7 +114,7 @@ p { margin: 0 0 1em; }
 .logo__text strong { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; white-space: nowrap; }
 .logo__text small { font-size: .62rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-text); }
 
-.nav { display: flex; gap: 1.7rem; }
+.nav { display: flex; gap: 1.45rem; }
 .nav a {
   position: relative; padding: .4rem 0; white-space: nowrap; text-decoration: none;
   font-size: .88rem; font-weight: 600; color: var(--navy-700); transition: color .25s;
@@ -418,6 +418,60 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
 .dcta p { color: rgba(255,255,255,.75); margin-bottom: 1.8rem; }
 .dcta .btn { font-size: .98rem; padding: 1.15rem 2.1rem; }
 
+/* ---------- Nuestra clínica ---------- */
+.clinic__intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2.5rem, 6vw, 5.5rem); align-items: center; }
+.clinic__intro > * { min-width: 0; }
+.clinic__team { position: relative; margin: 0; }
+.clinic__team::before { /* marco dorado desplazado */
+  content: ""; position: absolute; inset: 22px -22px -22px 22px; border-radius: var(--radius-lg);
+  border: 1px solid var(--champagne); opacity: .8; z-index: 0;
+}
+.clinic__team-btn { position: relative; z-index: 1; display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); background: var(--navy-700); }
+.clinic__team-btn img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; transition: transform 1.2s var(--ease-out); }
+.clinic__team-btn:hover img { transform: scale(1.04); }
+.clinic__team figcaption {
+  position: absolute; z-index: 2; left: 1.4rem; bottom: 1.4rem; padding: .55rem 1.1rem; border-radius: 999px;
+  background: rgba(5,15,32,.78); backdrop-filter: blur(8px); color: var(--white);
+  font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; border: 1px solid rgba(216,189,132,.45);
+}
+.clinic__text .section__lead { margin-inline: 0; }
+.clinic__teamtxt { color: var(--ink); font-size: 1.02rem; }
+.clinic__feats { list-style: none; padding: 0; margin: 1.8rem 0 2.2rem; display: grid; gap: 1.1rem; }
+.cfeat { display: flex; gap: 1rem; align-items: flex-start; }
+.cfeat__icon { flex: none; width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--navy-800); box-shadow: inset 0 0 0 1px rgba(216,189,132,.35); }
+.cfeat__icon svg { width: 22px; height: 22px; fill: none; stroke: var(--champagne); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cfeat strong { display: block; font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--navy-800); line-height: 1.2; }
+.cfeat p { margin: .15rem 0 0; color: var(--muted); font-size: .93rem; }
+
+.clinic__gtitle { text-align: center; font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--navy-800); margin: clamp(4rem, 8vw, 6rem) 0 1.8rem; }
+.cgallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+.ctile {
+  position: relative; display: block; padding: 0; border: 0; cursor: zoom-in; border-radius: 16px; overflow: hidden;
+  aspect-ratio: 3 / 4; background: var(--navy-700); box-shadow: var(--shadow-sm);
+  transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+.ctile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.ctile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 50%, rgba(5,15,32,.8)); pointer-events: none; }
+.ctile__cap { position: absolute; z-index: 1; left: .9rem; right: .9rem; bottom: .8rem; text-align: left; color: var(--white); font-size: .82rem; font-weight: 700; }
+.ctile__zoom { position: absolute; z-index: 1; top: .7rem; right: .7rem; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-grad); opacity: 0; transform: scale(.7); transition: all .4s var(--ease-out); }
+.ctile__zoom svg { width: 18px; height: 18px; fill: none; stroke: var(--navy-900); stroke-width: 2; stroke-linecap: round; }
+.ctile:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.ctile:hover img { transform: scale(1.07); }
+.ctile:hover .ctile__zoom, .ctile:focus-visible .ctile__zoom { opacity: 1; transform: none; }
+
+/* ---------- Visor de fotos ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 64px 70px; background: rgba(5,15,32,.94); backdrop-filter: blur(6px); opacity: 0; transition: opacity .35s; }
+.lightbox[hidden] { display: none; }
+.lightbox.is-open { opacity: 1; }
+.lightbox__img { max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 14px; box-shadow: 0 40px 80px -30px rgba(0,0,0,.8); transform: scale(.96); transition: transform .45s var(--ease-out); }
+.lightbox.is-open .lightbox__img { transform: none; }
+.lightbox button { position: absolute; border: 1px solid rgba(216,189,132,.5); background: rgba(255,255,255,.06); color: var(--white); border-radius: 50%; cursor: pointer; display: grid; place-items: center; transition: background .25s, color .25s; }
+.lightbox button:hover { background: var(--gold-grad); color: var(--navy-900); }
+.lightbox__close { top: 16px; right: 16px; width: 46px; height: 46px; font-size: 1.8rem; line-height: 1; }
+.lightbox__nav { top: 50%; width: 50px; height: 50px; margin-top: -25px; font-size: 2rem; line-height: 1; }
+.lightbox__nav--prev { left: 12px; }
+.lightbox__nav--next { right: 12px; }
+
 /* ---------- Testimonios ---------- */
 .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .testi {
@@ -514,6 +568,7 @@ img.is-broken { opacity: 0; }
   .header__cta { display: none; }
 }
 @media (max-width: 1024px) {
+  .cgallery { grid-template-columns: repeat(3, 1fr); }
   .services, .testimonials { grid-template-columns: repeat(2, 1fr); }
   .dgrid { grid-template-columns: repeat(2, 1fr); }
   .trust__inner { grid-template-columns: repeat(2, 1fr); }
@@ -539,6 +594,8 @@ img.is-broken { opacity: 0; }
   .nav a.is-active { color: var(--gold-text); }
 
   .results, .contact { grid-template-columns: 1fr; }
+  .clinic__intro { grid-template-columns: 1fr; }
+  .clinic__team { max-width: 460px; margin-inline: auto; width: calc(100% - 22px); }
 
   .journey__grid { grid-template-columns: 1fr; gap: 0; }
   .journey__visual { position: sticky; top: var(--header-h); z-index: 2; margin: 0 -24px; padding: 10px 24px 16px; background: var(--ivory); box-shadow: 0 18px 18px -6px var(--ivory); }
@@ -583,6 +640,14 @@ img.is-broken { opacity: 0; }
   .calc__summary { padding: 1.6rem 1.3rem; }
 
   .jstep__num { font-size: 3.4rem; }
+  .cgallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .8rem; margin-inline: -16px; padding: 0 16px 1rem; scrollbar-width: none; }
+  .cgallery::-webkit-scrollbar { display: none; }
+  .ctile { flex: 0 0 62%; scroll-snap-align: center; }
+  .ctile__zoom { opacity: 1; transform: none; }
+  .lightbox { padding: 64px 12px; }
+  .lightbox__nav { top: auto; bottom: 18px; margin-top: 0; }
+  .lightbox__nav--prev { left: calc(50% - 62px); }
+  .lightbox__nav--next { right: calc(50% - 62px); }
   .journey__visual { margin: 0 -16px; padding-inline: 16px; }
   .dcard--wide { grid-column: auto; display: flex; }
   .dcard--wide .dcard__media { aspect-ratio: 4 / 3; min-height: 0; }

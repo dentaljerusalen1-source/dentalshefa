@@ -30,6 +30,9 @@
     document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
       el.innerHTML = t(el.getAttribute("data-i18n-html"));
     });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
+    });
     document.querySelectorAll("#langToggle [data-lang]").forEach(function (el) {
       el.classList.toggle("is-active", el.getAttribute("data-lang") === lang);
     });
@@ -307,6 +310,53 @@
     });
   }, { rootMargin: window.innerWidth <= 860 ? "-62% 0px -28% 0px" : "-45% 0px -45% 0px" });
   steps.forEach(function (s) { stepObs.observe(s); });
+
+  /* ---------- Visor de fotos (clínica) ---------- */
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lbImg");
+  var lbItems = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
+  var lbIndex = 0, lbLast = null;
+
+  function lbShow(i) {
+    lbIndex = (i + lbItems.length) % lbItems.length;
+    var it = lbItems[lbIndex], im = it.querySelector("img");
+    lbImg.src = it.getAttribute("data-lb");
+    lbImg.alt = im ? im.alt : "";
+  }
+  function lbOpen(i) {
+    lbLast = document.activeElement;
+    lbShow(i);
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(function () { lb.classList.add("is-open"); });
+    lb.querySelector(".lightbox__close").focus();
+  }
+  function lbClose() {
+    lb.classList.remove("is-open");
+    document.body.style.overflow = "";
+    setTimeout(function () { lb.hidden = true; }, 300);
+    if (lbLast) lbLast.focus();
+  }
+  lbItems.forEach(function (it, i) { it.addEventListener("click", function () { lbOpen(i); }); });
+  lb.querySelector(".lightbox__close").addEventListener("click", lbClose);
+  lb.querySelector(".lightbox__nav--prev").addEventListener("click", function () { lbShow(lbIndex - 1); });
+  lb.querySelector(".lightbox__nav--next").addEventListener("click", function () { lbShow(lbIndex + 1); });
+  lb.addEventListener("click", function (ev) { if (ev.target === lb) lbClose(); });
+  document.addEventListener("keydown", function (ev) {
+    if (lb.hidden) return;
+    if (ev.key === "Escape") lbClose();
+    if (ev.key === "ArrowLeft") lbShow(lbIndex - 1);
+    if (ev.key === "ArrowRight") lbShow(lbIndex + 1);
+  });
+  // Deslizar con el dedo en el visor
+  var tx = null;
+  lb.addEventListener("touchstart", function (ev) { tx = ev.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", function (ev) {
+    if (tx === null) return;
+    var dx = ev.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
+    tx = null;
+  });
 
   /* ---------- Inicio ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
