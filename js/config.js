@@ -5,8 +5,9 @@
 window.SITE_CONFIG = {
   whatsapp: "50376559627",
 
-  // Costo estimado de viaje (vuelo ida y vuelta + hotel 5 noches), en USD
-  travelEstimate: 1200,
+  // Costo estimado del boleto de avión ida y vuelta (lo paga el paciente), en USD.
+  // Solo se usa en la calculadora si el visitante marca la casilla.
+  travelEstimate: 450,
 
   // Precios de referencia en USD (por unidad).
   //   us     = precio promedio en EE. UU.

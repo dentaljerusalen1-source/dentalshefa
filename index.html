@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f3a'/%3E%3Cpath d='M20 14c-6 0-9 5-8 12 1 6 4 9 5 16 1 6 3 9 5 9s3-4 4-9c1-3 2-5 6-5s5 2 6 5c1 5 2 9 4 9s4-3 5-9c1-7 4-10 5-16 1-7-2-12-8-12-5 0-7 3-12 3s-7-3-12-3z' fill='%23d4af37'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 <body>
 
@@ -18,7 +18,8 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#inicio" class="logo" aria-label="Clínica Dental Jerusalén Shefa">
-        <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 14c-6 0-9 5-8 12 1 6 4 9 5 16 1 6 3 9 5 9s3-4 4-9c1-3 2-5 6-5s5 2 6 5c1 5 2 9 4 9s4-3 5-9c1-7 4-10 5-16 1-7-2-12-8-12-5 0-7 3-12 3s-7-3-12-3z"/></svg>
+        <img class="logo__img" src="img/logo-header.png" alt="Logo Dental Jerusalén Shefa" width="178" height="160" />
+        
         <span class="logo__text">
           <strong>Jerusalén Shefa</strong>
           <small data-i18n="brand.tag">Clínica Dental</small>
@@ -53,9 +54,10 @@
         <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80" alt="" />
       </div>
       <div class="container hero__content">
+        <div class="hero__logo reveal" aria-hidden="true"><img src="img/logo.png" alt="" width="700" height="629" /></div>
         <p class="eyebrow reveal" data-i18n="hero.eyebrow">Turismo dental · San Salvador, El Salvador</p>
         <h1 class="hero__title reveal" data-i18n-html="hero.title">Tu nueva sonrisa,<br /><em>a una fracción</em> del precio en EE. UU.</h1>
-        <p class="hero__lead reveal" data-i18n="hero.lead">Especialistas en rehabilitación oral y estética dental. Implantes, coronas y carillas con estándares internacionales, atención bilingüe y un acompañamiento completo desde que aterrizas.</p>
+        <p class="hero__lead reveal" data-i18n="hero.lead">Especialistas en rehabilitación oral y estética dental. Implantes, coronas y carillas con estándares internacionales y atención bilingüe. ¿Vienes a El Salvador? Aprovecha tu visita para transformar tu sonrisa.</p>
         <div class="hero__ctas reveal">
           <a href="#ahorro" class="btn btn--gold" data-i18n="hero.cta1">Calcula tu ahorro</a>
           <a href="https://wa.me/50376559627" class="btn btn--ghost js-wa" target="_blank" rel="noopener" data-i18n="hero.cta2">Escríbenos por WhatsApp</a>
@@ -74,7 +76,7 @@
         <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.1">Atención en inglés y español</span></div>
         <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.2">Materiales certificados FDA / CE</span></div>
         <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.3">Plan de tratamiento por escrito</span></div>
-        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.4">Traslado desde el aeropuerto</span></div>
+        <div class="trust__item"><span class="trust__icon">✦</span><span data-i18n="trust.4">Citas según las fechas de tu viaje</span></div>
       </div>
     </section>
 
@@ -164,13 +166,13 @@
 
           <aside class="calc__summary">
             <label class="calc__travel">
-              <input type="checkbox" id="calcTravel" checked />
-              <span data-i18n="calc.travel">Incluir viaje estimado (vuelo + hotel 5 noches)</span>
+              <input type="checkbox" id="calcTravel" />
+              <span data-i18n="calc.travel">Restar el costo estimado de tu boleto de avión</span>
             </label>
             <dl class="calc__totals">
               <div><dt data-i18n="calc.us">Precio en EE. UU.</dt><dd id="totUS">$0</dd></div>
               <div><dt data-i18n="calc.clinic">En Jerusalén Shefa</dt><dd id="totClinic">$0</dd></div>
-              <div class="calc__travel-row" id="travelRow"><dt data-i18n="calc.trip">+ Viaje estimado</dt><dd id="totTravel">$0</dd></div>
+              <div class="calc__travel-row" id="travelRow"><dt data-i18n="calc.trip">+ Boleto de avión estimado</dt><dd id="totTravel">$0</dd></div>
             </dl>
             <div class="calc__save">
               <span data-i18n="calc.save">Tu ahorro estimado</span>
@@ -191,6 +193,7 @@
         <header class="section__head reveal">
           <p class="eyebrow" data-i18n="journey.eyebrow">Paso a paso</p>
           <h2 data-i18n="journey.title">Tu viaje de sonrisa</h2>
+          <p class="section__lead" data-i18n="journey.lead">Tú organizas tu viaje —para visitar a tu familia, unas vacaciones o un viaje que ya tienes planeado— y nosotros aprovechamos tu estadía en El Salvador para atenderte en la clínica.</p>
         </header>
       </div>
 
@@ -211,7 +214,7 @@
           <li class="jstep is-active" data-step="0">
             <span class="jstep__num">01</span>
             <h3 data-i18n="journey.s1.t">Llegas</h3>
-            <p data-i18n="journey.s1.d">Te recibimos en el Aeropuerto Internacional de El Salvador y te llevamos a tu hotel. Desde el primer mensaje, un coordinador bilingüe organiza tus citas, horarios y traslados.</p>
+            <p data-i18n="journey.s1.d">Tú coordinas tu vuelo, transporte y hospedaje: muchos pacientes vienen a visitar a su familia o ya tienen un viaje planeado. Escríbenos con tus fechas y agendamos tus citas para aprovechar al máximo tu visita.</p>
           </li>
           <li class="jstep" data-step="1">
             <span class="jstep__num">02</span>
@@ -221,7 +224,7 @@
           <li class="jstep" data-step="2">
             <span class="jstep__num">03</span>
             <h3 data-i18n="journey.s3.t">Disfrutas El Salvador</h3>
-            <p data-i18n="journey.s3.d">Entre citas, descubre playas de surf de clase mundial, volcanes, la Ruta de las Flores y la mejor gastronomía local. Tu recuperación también puede ser unas vacaciones.</p>
+            <p data-i18n="journey.s3.d">Entre citas, disfruta con tu familia y descubre playas de surf de clase mundial, volcanes, la Ruta de las Flores y la mejor gastronomía local.</p>
           </li>
           <li class="jstep" data-step="3">
             <span class="jstep__num">04</span>
@@ -252,7 +255,7 @@
           </figure>
           <figure class="testi reveal">
             <div class="testi__stars">★★★★★</div>
-            <blockquote data-i18n="testi.3">"Desde el aeropuerto hasta la última cita, me sentí acompañada. Explican todo con paciencia y claridad."</blockquote>
+            <blockquote data-i18n="testi.3">"Vine a visitar a mi familia y aproveché para hacerme mis coronas. Me organizaron las citas según mis fechas y explican todo con paciencia."</blockquote>
             <figcaption><strong>Ana L.</strong> · Washington, D.C.</figcaption>
           </figure>
         </div>
@@ -268,8 +271,9 @@
           <h2 data-i18n="faq.title">Todo lo que necesitas saber</h2>
         </header>
         <div class="faq">
+          <details class="reveal" open><summary data-i18n="faq.q0">¿La clínica organiza el viaje, el transporte o el hospedaje?</summary><p data-i18n="faq.a0">No. Cada paciente coordina su propio viaje, transporte y hospedaje. Nosotros organizamos tus citas según tus fechas para que aproveches tu visita a El Salvador, por ejemplo cuando vienes a ver a tu familia o ya tienes un viaje planeado.</p></details>
           <details class="reveal"><summary data-i18n="faq.q1">¿Cuántos días necesito quedarme?</summary><p data-i18n="faq.a1">Depende del tratamiento. Carillas y coronas suelen requerir 5–7 días. Los implantes requieren dos viajes: colocación y, después de 3–6 meses, la corona final.</p></details>
-          <details class="reveal"><summary data-i18n="faq.q2">¿Es seguro viajar a El Salvador?</summary><p data-i18n="faq.a2">El Salvador es hoy uno de los países más seguros de la región. Además, coordinamos tus traslados para que te muevas con tranquilidad.</p></details>
+          <details class="reveal"><summary data-i18n="faq.q2">¿Es seguro viajar a El Salvador?</summary><p data-i18n="faq.a2">El Salvador es hoy uno de los países más seguros de la región, y cada año miles de salvadoreños que viven en EE. UU. viajan para visitar a su familia.</p></details>
           <details class="reveal"><summary data-i18n="faq.q3">¿Necesito pasaporte o visa?</summary><p data-i18n="faq.a3">Los ciudadanos estadounidenses solo necesitan pasaporte vigente. No se requiere visa para estancias de turismo.</p></details>
           <details class="reveal"><summary data-i18n="faq.q4">¿Qué garantía ofrecen?</summary><p data-i18n="faq.a4">Todos nuestros tratamientos incluyen garantía por escrito y seguimiento a distancia una vez que regresas a casa.</p></details>
           <details class="reveal"><summary data-i18n="faq.q5">¿Cómo puedo pagar?</summary><p data-i18n="faq.a5">Aceptamos tarjetas de crédito y débito, transferencias y efectivo en dólares estadounidenses, la moneda oficial del país.</p></details>
@@ -302,10 +306,7 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="logo logo--footer">
-        <svg class="logo__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 14c-6 0-9 5-8 12 1 6 4 9 5 16 1 6 3 9 5 9s3-4 4-9c1-3 2-5 6-5s5 2 6 5c1 5 2 9 4 9s4-3 5-9c1-7 4-10 5-16 1-7-2-12-8-12-5 0-7 3-12 3s-7-3-12-3z"/></svg>
-        <span class="logo__text"><strong>Jerusalén Shefa</strong><small data-i18n="brand.tag">Clínica Dental</small></span>
-      </div>
+      <img class="footer__logo" src="img/logo.png" alt="Logo Dental Jerusalén Shefa" width="700" height="629" loading="lazy" />
       <p>© <span id="year"></span> Clínica Dental Jerusalén Shefa · San Salvador, El Salvador</p>
     </div>
   </footer>

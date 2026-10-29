@@ -11,7 +11,7 @@ Sitio estático bilingüe (español / inglés) para turismo dental. No requiere 
 - `img/` — coloca aquí tus fotos
 
 ## Cómo poner tus precios reales
-Edita `js/config.js` → `treatments`. Cada tratamiento tiene `us` (precio promedio EE. UU.) y `clinic` (tu precio). `travelEstimate` es el costo estimado de vuelo + hotel.
+Edita `js/config.js` → `treatments`. Cada tratamiento tiene `us` (precio promedio EE. UU.) y `clinic` (tu precio). `travelEstimate` es el costo estimado del boleto de avión (el paciente organiza su propio viaje).
 
 ## Cómo poner tus fotos
 1. Copia tus fotos a `img/`.
