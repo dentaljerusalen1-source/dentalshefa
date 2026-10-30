@@ -31,3 +31,7 @@ En `js/config.js` cambia `scannerVideo`:
 - Si subes el archivo a la carpeta `videos/`: `scannerVideo: "videos/escaner-intraoral-future-bass.mp4"`
 - Si está en YouTube: `scannerVideo: "https://www.youtube.com/watch?v=..."`
 Mientras esté vacío se muestra el aviso "Video próximamente".
+
+## Casos clínicos (antes y después)
+Fotos en `images/casos/` (casoN-antes.jpg, casoN-despues.jpg y casoN-completo.jpg).
+Los nombres y descripciones de cada caso están en `js/config.js` → `beforeAfter`.

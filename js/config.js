@@ -28,26 +28,22 @@ window.SITE_CONFIG = {
     { id: "whitening",us: 700,   clinic: 200,  max: 1,  es: "Blanqueamiento",           en: "Teeth whitening" }
   ],
 
-  // Casos de antes y después.
+  // Casos de antes y después (fotos en images/casos/).
+  //   name = nombre de la pestaña, desc = descripción corta, full = imagen completa del caso.
   // Cuando tengas tus fotos, colócalas en /img y cambia las rutas,
   // por ejemplo: before: "img/caso1-antes.jpg", after: "img/caso1-despues.jpg"
   // y pon simulate: false.
   // simulate: true = usa la misma foto con un filtro para simular el "antes".
   beforeAfter: [
-    {
-      before: "https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1200&q=80",
-      after:  "https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1200&q=80",
-      simulate: true
-    },
-    {
-      before: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
-      after:  "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80",
-      simulate: true
-    },
-    {
-      before: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80",
-      after:  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=1200&q=80",
-      simulate: true
-    }
+    { name: "Coronas estéticas", desc: "Cambio de coronas y pernos antiguos por coronas nuevas de aspecto natural en el sector anterior.",
+      before: "images/casos/caso1-antes.jpg", after: "images/casos/caso1-despues.jpg", full: "images/casos/caso1-completo.jpg", simulate: false },
+    { name: "Rehabilitación superior", desc: "Rehabilitación de la arcada superior con coronas sobre pilares, devolviendo función y estética.",
+      before: "images/casos/caso2-antes.jpg", after: "images/casos/caso2-despues.jpg", full: "images/casos/caso2-completo.jpg", simulate: false },
+    { name: "Diseño de sonrisa", desc: "Transformación completa de la sonrisa con coronas diseñadas a la medida del paciente.",
+      before: "images/casos/caso3-antes.jpg", after: "images/casos/caso3-despues.jpg", full: "images/casos/caso3-completo.jpg", simulate: false },
+    { name: "Corona unitaria", desc: "Corona individual en un diente anterior, integrada en color y forma con los dientes vecinos.",
+      before: "images/casos/caso4-antes.jpg", after: "images/casos/caso4-despues.jpg", full: "images/casos/caso4-completo.jpg", simulate: false },
+    { name: "Puente inferior", desc: "Puente fijo en el sector anterior inferior para reemplazar las piezas perdidas.",
+      before: "images/casos/caso5-antes.jpg", after: "images/casos/caso5-despues.jpg", full: "images/casos/caso5-completo.jpg", simulate: false }
   ]
 };

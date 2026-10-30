@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=202610300005" />
+  <link rel="stylesheet" href="css/styles.css?v=202610302023" />
   <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 <body>
@@ -251,15 +251,16 @@
     <section class="section section--navy" id="resultados">
       <div class="container results">
         <div class="results__text reveal">
-          <p class="eyebrow" data-i18n="ba.eyebrow">Resultados reales</p>
+          <p class="eyebrow" data-i18n="ba.eyebrow">Casos clínicos</p>
           <h2 data-i18n="ba.title">Antes y después</h2>
           <p class="section__lead" data-i18n="ba.lead">Desliza para ver la transformación. Cada caso se planifica según la anatomía, la función y los deseos del paciente.</p>
-          <div class="ba-tabs" role="tablist" id="baTabs">
-            <button class="ba-tab is-active" role="tab" data-case="0" data-i18n="ba.case1">Carillas</button>
-            <button class="ba-tab" role="tab" data-case="1" data-i18n="ba.case2">Implantes</button>
-            <button class="ba-tab" role="tab" data-case="2" data-i18n="ba.case3">Blanqueamiento</button>
-          </div>
-          <p class="note" data-i18n="ba.note">* Imágenes de ejemplo. Pronto: casos de nuestros pacientes.</p>
+          <div class="ba-tabs" role="tablist" id="baTabs" aria-label="Casos clínicos"><!-- generado desde js/config.js --></div>
+          <p class="ba-desc" id="baDesc" aria-live="polite"></p>
+          <button type="button" class="ba-full" id="baFull">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            <span data-i18n="ba.full">Ver caso completo</span>
+          </button>
+          <p class="note" data-i18n="ba.note">Casos realizados por nuestro equipo.</p>
         </div>
 
         <div class="ba reveal" id="ba" style="--pos:50%">
@@ -625,8 +626,8 @@
     <span class="wa-float__tip" data-i18n="wa.tip">¿Hablamos?</span>
   </a>
 
-  <script src="js/config.js?v=202610300005" defer></script>
-  <script src="js/i18n.js?v=202610300005" defer></script>
-  <script src="js/main.js?v=202610300005" defer></script>
+  <script src="js/config.js?v=202610302023" defer></script>
+  <script src="js/i18n.js?v=202610302023" defer></script>
+  <script src="js/main.js?v=202610302023" defer></script>
 </body>
 </html>

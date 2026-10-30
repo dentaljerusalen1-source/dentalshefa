@@ -1,6 +1,9 @@
 /* Traducciones / Translations */
 window.I18N = {
   es: {
+    "ba.eyebrow": "Casos clínicos",
+    "ba.note": "Casos realizados por nuestro equipo.",
+    "ba.full": "Ver caso completo",
     "testi.2": "\"Mis carillas se ven completamente naturales. Aproveché para conocer el Lago de Coatepeque. ¡Volvería sin dudarlo!\"",
     "testi.3": "\"Vine a visitar a mi familia y aproveché para hacerme mis coronas. Me organizaron las citas según mis fechas y explican todo con paciencia.\"",
     "services.s1.t": "Diseño digital de sonrisa",
@@ -132,15 +135,10 @@ window.I18N = {
     "services.title": "Rehabilitación oral y estética dental",
     "services.lead": "Devolvemos función, salud y belleza a tu sonrisa con tratamientos planificados de principio a fin.",
 
-    "ba.eyebrow": "Resultados reales",
     "ba.title": "Antes y después",
     "ba.lead": "Desliza para ver la transformación. Cada caso se planifica según la anatomía, la función y los deseos del paciente.",
-    "ba.case1": "Carillas",
-    "ba.case2": "Implantes",
-    "ba.case3": "Blanqueamiento",
     "ba.before": "Antes",
     "ba.after": "Después",
-    "ba.note": "* Imágenes de ejemplo. Pronto: casos de nuestros pacientes.",
 
     "calc.eyebrow": "Calculadora de ahorro",
     "calc.title": "¿Cuánto ahorras con nosotros?",
@@ -298,15 +296,10 @@ window.I18N = {
     "services.title": "Oral rehabilitation & cosmetic dentistry",
     "services.lead": "We restore function, health and beauty to your smile with treatments planned from start to finish.",
 
-    "ba.eyebrow": "Real results",
     "ba.title": "Before & after",
     "ba.lead": "Drag to reveal the transformation. Every case is planned around the patient's anatomy, function and goals.",
-    "ba.case1": "Veneers",
-    "ba.case2": "Implants",
-    "ba.case3": "Whitening",
     "ba.before": "Before",
     "ba.after": "After",
-    "ba.note": "* Sample images. Patient cases coming soon.",
 
     "calc.eyebrow": "Savings calculator",
     "calc.title": "How much will you save?",

@@ -159,18 +159,43 @@
   var baBefore = document.getElementById("baBefore");
   var baAfter = document.getElementById("baAfter");
 
+  var baTabs = document.getElementById("baTabs");
+  var baDesc = document.getElementById("baDesc");
+  var baCase = 0;
+  CFG.beforeAfter.forEach(function (c, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "ba-tab"; b.setAttribute("role", "tab");
+    b.setAttribute("data-case", i); b.textContent = c.name || ("Caso " + (i + 1));
+    b.addEventListener("click", function () { setCase(i); });
+    baTabs.appendChild(b);
+  });
+
   function setCase(i) {
     var c = CFG.beforeAfter[i];
     if (!c) return;
+    baCase = i;
     baBefore.classList.remove("is-broken");
     baAfter.classList.remove("is-broken");
     baBefore.src = c.before;
     baAfter.src = c.after;
+    baBefore.alt = "Antes: " + (c.name || "");
+    baAfter.alt = "Después: " + (c.name || "");
     ba.classList.toggle("is-simulated", !!c.simulate);
-    document.querySelectorAll(".ba-tab").forEach(function (b) {
-      b.classList.toggle("is-active", +b.getAttribute("data-case") === i);
+    if (baDesc) baDesc.textContent = c.desc || "";
+    document.getElementById("baFull").hidden = !c.full;
+    baTabs.querySelectorAll(".ba-tab").forEach(function (b) {
+      var on = +b.getAttribute("data-case") === i;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-selected", on);
     });
   }
+  // El marco toma la proporción real de cada foto
+  baAfter.addEventListener("load", function () {
+    if (!baAfter.naturalWidth) return;
+    // no más ancho que 2.3:1 para que las fotos panorámicas no queden muy delgadas
+    var r = Math.min(baAfter.naturalWidth / baAfter.naturalHeight, 2.3);
+    ba.style.aspectRatio = r.toFixed(3);
+  });
 
   function setPos(v) {
     baRange.value = v;
@@ -202,9 +227,6 @@
     setTimeout(function () { requestAnimationFrame(frame); }, 400);
   }, { threshold: 0.6 });
   baObs.observe(ba);
-  document.querySelectorAll(".ba-tab").forEach(function (b) {
-    b.addEventListener("click", function () { setCase(+b.getAttribute("data-case")); });
-  });
   setCase(0);
 
   /* ---------- Calculadora ---------- */
@@ -315,16 +337,23 @@
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lbImg");
   var lbItems = Array.prototype.slice.call(document.querySelectorAll("[data-lb]"));
-  var lbIndex = 0, lbLast = null;
+  var clinicList = lbItems.map(function (it) {
+    var im = it.querySelector("img");
+    return { src: it.getAttribute("data-lb"), alt: im ? im.alt : "" };
+  });
+  var caseList = CFG.beforeAfter.filter(function (c) { return c.full; })
+    .map(function (c) { return { src: c.full, alt: c.name || "" }; });
+  var lbList = [], lbIndex = 0, lbLast = null;
 
   function lbShow(i) {
-    lbIndex = (i + lbItems.length) % lbItems.length;
-    var it = lbItems[lbIndex], im = it.querySelector("img");
-    lbImg.src = it.getAttribute("data-lb");
-    lbImg.alt = im ? im.alt : "";
+    lbIndex = (i + lbList.length) % lbList.length;
+    lbImg.src = lbList[lbIndex].src;
+    lbImg.alt = lbList[lbIndex].alt;
   }
-  function lbOpen(i) {
+  function lbOpen(list, i) {
+    lbList = list;
     lbLast = document.activeElement;
+    lb.classList.toggle("is-single", list.length < 2);
     lbShow(i);
     lb.hidden = false;
     document.body.style.overflow = "hidden";
@@ -337,7 +366,12 @@
     setTimeout(function () { lb.hidden = true; }, 300);
     if (lbLast) lbLast.focus();
   }
-  lbItems.forEach(function (it, i) { it.addEventListener("click", function () { lbOpen(i); }); });
+  lbItems.forEach(function (it, i) { it.addEventListener("click", function () { lbOpen(clinicList, i); }); });
+  document.getElementById("baFull").addEventListener("click", function () {
+    var src = CFG.beforeAfter[baCase].full;
+    var k = caseList.findIndex(function (c) { return c.src === src; });
+    lbOpen(caseList, Math.max(0, k));
+  });
   lb.querySelector(".lightbox__close").addEventListener("click", lbClose);
   lb.querySelector(".lightbox__nav--prev").addEventListener("click", function () { lbShow(lbIndex - 1); });
   lb.querySelector(".lightbox__nav--next").addEventListener("click", function () { lbShow(lbIndex + 1); });

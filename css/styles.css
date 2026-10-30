@@ -261,8 +261,18 @@ html[lang="en"] .lang-toggle__pill { transform: translateX(100%); }
 .ba-tab:hover { border-color: var(--champagne); color: var(--white); transform: translateY(-2px); }
 .ba-tab.is-active { background: var(--gold-grad); border-color: transparent; color: var(--navy-900); box-shadow: var(--shadow-gold); }
 
+.ba-desc { margin: 1.4rem 0 0; color: rgba(255,255,255,.82); font-size: .98rem; min-height: 3.2em; }
+.ba-full {
+  display: inline-flex; align-items: center; gap: .55rem; margin-top: 1rem; padding: .6rem 1.15rem; border-radius: 999px; cursor: pointer;
+  background: transparent; border: 1px solid rgba(216,189,132,.55); color: var(--champagne-light); font-size: .86rem; font-weight: 700;
+  transition: background .3s, color .3s, transform .3s var(--ease-out);
+}
+.ba-full svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.ba-full:hover { background: var(--gold-grad); color: var(--navy-900); transform: translateY(-2px); }
+.ba-full[hidden] { display: none; }
+.lightbox.is-single .lightbox__nav { display: none; }
 .ba {
-  position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-lg); overflow: hidden; user-select: none; touch-action: pan-y;
+  position: relative; aspect-ratio: 2 / 1; transition: aspect-ratio .4s var(--ease); border-radius: var(--radius-lg); overflow: hidden; user-select: none; touch-action: pan-y;
   background: linear-gradient(135deg, var(--navy-600), var(--navy-950));
   box-shadow: 0 40px 80px -35px rgba(0,0,0,.8), 0 0 0 1px rgba(216,189,132,.35);
 }
