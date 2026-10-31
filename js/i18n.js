@@ -1,6 +1,17 @@
 /* Traducciones / Translations */
 window.I18N = {
   es: {
+    "clean.eyebrow": "Procedimiento",
+    "clean.title": "Limpieza dental profesional",
+    "clean.lead": "Eliminamos el sarro y las manchas para dejar tus dientes limpios, lisos y con un aspecto más luminoso.",
+    "clean.p1.t": "Ultrasonido",
+    "clean.p1.d": "Retira el sarro acumulado sobre los dientes y cerca de las encías.",
+    "clean.p2.t": "Pulido",
+    "clean.p2.d": "Elimina manchas superficiales y deja una superficie lisa.",
+    "clean.p3.t": "Revisión completa",
+    "clean.p3.d": "Aprovechamos para revisar tus dientes y encías y orientarte sobre tu salud bucal.",
+    "clean.cta": "Agenda tu limpieza",
+    "clean.note": "* Video ilustrativo del procedimiento.",
     "ba.eyebrow": "Casos clínicos",
     "ba.note": "Casos realizados por nuestro equipo.",
     "ba.full": "Ver caso completo",

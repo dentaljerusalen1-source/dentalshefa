@@ -415,6 +415,21 @@
     }
   })();
 
+  /* ---------- Videos sin sonido: se reproducen solos al estar a la vista ---------- */
+  (function () {
+    var vids = document.querySelectorAll("video.js-autoplay");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!vids.length || reduce || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) { v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.5 });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+
   /* ---------- Inicio ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
   applyLang(detectLang());
